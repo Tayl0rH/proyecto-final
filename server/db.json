@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "chef",
+      "password": "chef",
+      "email": "chef@test.com",
+      "role": "chef"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "1234",
+      "email": "user1@test.com",
+      "role": "user"
+    }
+  ],
+
+
+  
+  "dishes": [
+    {
+      "id": "1",
+      "name": "Ensalada de tomate",
+      "description": "Ensalada de tomate con aceite de oliva virgen extra",
+      "price": 5.50,
+      "category": "entrantes",
+      "image": "https://picsum.photos/200/300",
+      "enabled": true
+    }
+  ]
+}
