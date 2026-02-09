@@ -1,0 +1,12 @@
+div{
+  background-color: #2a3038;
+  color: #c5cbd3;
+  section{
+    h2{
+      color: #f2f2f2;
+    }
+  }
+  .price-color{
+    color: #9aa4b2;
+  }
+}

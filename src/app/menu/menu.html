@@ -3,7 +3,7 @@
 <p>No hay platos...</p>
 }
 @for (dish of dishes; track dish) {
-<div class="card bg-base-100 w-96 shadow-sm ">
+<div class="card bg-base-100 w-96 shadow-sm">
   <figure>
     <img src="{{dish.image}}" alt="Ensalada de Tomate" />
   </figure>
@@ -13,8 +13,10 @@
       <p>{{dish.category | titlecase}}</p>
     </section>
     <p>{{dish.description}}</p>
-    <p class="text-end">{{dish.price | currency : 'EUR'}}</p>
+    <p class="text-end price-color">{{dish.price | currency : 'EUR'}}</p>
   </div>
 </div>
 }
 }
+
+<p>Ordenar por precio  ||||||| categoria </p>

@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { Menu } from './menu/menu';
 import { Admin } from './admin/admin';
 import { Login } from './login/login';
+import { Edit } from './admin/edit/edit';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,11 @@ export const routes: Routes = [
     path: 'admin',
     component: Admin,
     title: 'Admin'
+  },
+  {
+    path: 'admin/edit/:id',
+    component: Edit,
+    title: 'Edit'
   },
   {
     path: 'login',

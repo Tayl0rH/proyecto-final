@@ -15,18 +15,33 @@
       "role": "user"
     }
   ],
-
-
-  
   "dishes": [
     {
       "id": "1",
       "name": "Ensalada de tomate",
       "description": "Ensalada de tomate con aceite de oliva virgen extra",
-      "price": 5.50,
+      "price": 5.5,
       "category": "entrantes",
       "image": "https://picsum.photos/200/300",
       "enabled": true
+    },
+    {
+      "id": "ce17",
+      "name": "Kennan Knight",
+      "description": "Aliquam perspiciatis",
+      "price": 329,
+      "category": "entrantes",
+      "image": "https://picsum.photos/200",
+      "enabled": true
+    },
+    {
+      "id": "e6a1",
+      "name": "akdsjfgajsvks",
+      "description": "Soluta itaque at cil",
+      "price": 235,
+      "category": "bebidas",
+      "image": "",
+      "enabled": false
     }
   ]
 }

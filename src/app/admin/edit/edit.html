@@ -1,0 +1,54 @@
+<section class="flex justify-center py-10">
+  <form class="form-control gap-4 p-6 bg-base-200 rounded-2xl shadow-lg w-full max-w-md">
+
+    <h2 class="text-xl font-semibold text-center mb-2">
+      Edita
+    </h2>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Nombre del Plato</span>
+      </label>
+      <input type="text" name="name" [(ngModel)]="dish.name" class="input input-bordered w-full" />
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Descripción</span>
+      </label>
+      <textarea name="description" [(ngModel)]="dish.description"
+        class="textarea textarea-bordered w-full" ></textarea>
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Precio (€)</span>
+      </label>
+      <input type="number" name="price" [(ngModel)]="dish.price" class="input input-bordered w-full" />
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Categoría</span>
+      </label>
+      <select name="category" id="category" [(ngModel)]="dish.category" class="select select-bordered w-full">
+        <option value="entrantes">Entrantes</option>
+        <option value="principales">Principales</option>
+        <option value="postres">Postres</option>
+        <option value="bebidas">Bebidas</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Imagen del plato</span>
+      </label>
+      <input type="file" class="file-input file-input-bordered w-full" name="image" #fileImage (change)="changeImage(fileImage)"/>
+    </div>
+
+    <button class="btn btn-primary mt-4" (click)="editDish(dish)">
+      Guardar plato
+    </button>
+
+  </form>
+</section>

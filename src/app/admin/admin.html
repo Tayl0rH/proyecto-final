@@ -1,1 +1,86 @@
-<p>admin works!</p>
+<section class="flex justify-center py-10">
+  <form class="form-control gap-4 p-6 bg-base-200 rounded-2xl shadow-lg w-full max-w-md" (ngSubmit)="addDishes()" enctype>
+
+    <h2 class="text-xl font-semibold text-center mb-2">
+      Añadir nuevo plato
+    </h2>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Nombre del Plato</span>
+      </label>
+      <input type="text" name="name" [(ngModel)]="newDish.name" placeholder="Escribe aquí..." class="input input-bordered w-full" />
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Descripción</span>
+      </label>
+      <textarea name="description" placeholder="Descripción del producto"
+        class="textarea textarea-bordered w-full" [(ngModel)]="newDish.description"></textarea>
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Precio (€)</span>
+      </label>
+      <input type="number" name="price" [(ngModel)]="newDish.price" class="input input-bordered w-full" />
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Categoría</span>
+      </label>
+      <select name="category" id="category" [(ngModel)]="newDish.category" class="select select-bordered w-full">
+        <option value="entrantes">Entrantes</option>
+        <option value="principales">Principales</option>
+        <option value="postres">Postres</option>
+        <option value="bebidas">Bebidas</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="label">
+        <span class="label-text">Imagen del plato</span>
+      </label>
+      <input type="file" class="file-input file-input-bordered w-full" name="image" #fileImage (change)="changeImage(fileImage)" />
+    </div>
+
+    <button class="btn btn-primary mt-4">
+      Guardar plato
+    </button>
+
+  </form>
+</section>
+
+
+<hr>
+<section>
+
+  @if (dishes$ | async; as dishes){
+  @if (dishes.length == 0) {
+  <p>No hay platos...</p>
+  }
+  @for (dish of dishes; track dish) {
+  <div class="card bg-base-100 w-96 shadow-sm">
+    <figure>
+      <img [src]="dish.image" alt="{{dish.name}}" />
+    </figure>
+    <div class="card-body">
+      <section class="flex items-center gap-10">
+        <h2 class="card-title">{{dish.name}}</h2>
+        <p>{{dish.category | titlecase}}</p>
+      </section>
+      <p>{{dish.description}}</p>
+      <p class="text-end price-color">{{dish.price | currency : 'EUR'}}, {{dish.enabled}}</p>
+    </div>
+    <div class="flex justify-between">
+      <button class="btn btn-active btn-accent" [routerLink]="['/admin/edit', dish.id]">Editar</button>
+      <button class="btn btn-active btn-error" (click)="deleteDish(dish.id!)">Eliminar</button>
+      <button class="btn btn-active btn-warning" (click)="showDish(dish.id!, dish.enabled)">Habilitar/Deshabilitar</button>
+    </div>
+  </div>
+  }
+  }
+
+</section>
