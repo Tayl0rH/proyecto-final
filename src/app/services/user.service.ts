@@ -20,5 +20,22 @@ export class UserService {
       `${this.userEndPoint}?email=${email}&password=${password}`
     )
   }
-  
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('currentUser');
+  }
+
+  logout(): void{
+    localStorage.removeItem('currentUser');
+  }
+
+  currentUser(): IUser | null {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user) : null;
+  }
+
+  isChef(): boolean {
+    const user = this.currentUser();
+    return user?.role === 'chef';
+  }
 }

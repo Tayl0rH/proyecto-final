@@ -7,8 +7,14 @@
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
         <li><a routerLink="/menu">Carta</a></li>
-        <li><a routerLink="/admin">Gestión(Solo Admin)</a></li>
-        <li><a routerLink="/login">Iniciar/Cerrar Sesión</a></li>
+        @if(isChef()){
+          <li><a routerLink="/admin">Gestión(Solo Admin)</a></li>
+        }
+        @if(isLogged()){
+          <li><button class="btn" (click)="logout()">Cerrar Sesión</button></li>
+        } @else {
+          <li><a routerLink="/login">Iniciar Sesión</a></li>
+        }
       </ul>
     </div>
   </div>

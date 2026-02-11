@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex justify-end gap-4 content-stretch">
   <button class="btn btn-ghost btn-sm flex items-center gap-2" (click)="orderPrice()">
     Ordenar por precio
   </button>
@@ -10,23 +10,28 @@
     <option value="bebidas">Bebidas</option>
   </select>
 </div>
-@if (dishes$ | async; as dishes){
-@if (dishes.length == 0) {
-<p>No hay platos...</p>
-}
-@for (dish of dishes; track dish) {
-<div class="card bg-base-100 w-96 shadow-sm">
-  <figure>
-    <img src="{{dish.image}}" alt="Ensalada de Tomate" />
-  </figure>
-  <div class="card-body">
-    <section class="flex items-center gap-10">
-      <h2 class="card-title">{{dish.name}}</h2>
-      <p>{{dish.category | titlecase}}</p>
-    </section>
-    <p>{{dish.description}}</p>
-    <p class="text-end price-color">{{dish.price | currency : 'EUR'}}</p>
+
+<section class="flex flex-wrap justify-around">
+
+  @if (dishes$ | async; as dishes){
+  @if (dishes.length == 0) {
+  <p>No hay platos...</p>
+  }
+  @for (dish of dishes; track dish) {
+  <div class="card bg-base-100 w-96 shadow-sm">
+    <figure>
+      <img src="{{dish.image}}" alt="Ensalada de Tomate" />
+    </figure>
+    <div class="card-body">
+      <section class="flex items-center gap-10">
+        <h2 class="card-title">{{dish.name}}</h2>
+        <p>{{dish.category | titlecase}}</p>
+      </section>
+      <p>{{dish.description}}</p>
+      <p class="text-end price-color">{{dish.price | currency : 'EUR'}}</p>
+    </div>
   </div>
-</div>
-}
-}
+  }
+  }
+
+</section>

@@ -4,6 +4,8 @@ import { DishesService } from '../services/dish.service';
 import { CommonModule } from '@angular/common';
 import { IDish } from '../interfaces/i-dish';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +17,10 @@ export class Menu {
   dishes$: Observable<IDish[]>;
   private orderBy = true;
 
-  constructor(private dishesService: DishesService) {
+  constructor(private dishesService: DishesService,
+              private userService: UserService,
+              private router: Router
+  ) {
     this.dishes$ = this.dishesService
       .getDishes()
       .pipe(map((dishes) => dishes.filter((dish) => dish.enabled)));

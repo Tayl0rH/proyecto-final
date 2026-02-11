@@ -27,7 +27,7 @@ export class Login {
 
           localStorage.setItem('currentUser', JSON.stringify(user));
 
-          if(user.role){
+          if(user.role == 'chef'){
             this.route.navigate(['/admin']);
           } else {
             this.route.navigate(['/menu'])
@@ -39,4 +39,6 @@ export class Login {
       }
     )
   }
+
+
 }

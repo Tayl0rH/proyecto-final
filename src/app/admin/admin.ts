@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { IDish } from '../interfaces/i-dish';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -15,8 +16,21 @@ import { RouterLink } from '@angular/router';
 export class Admin {
   dishes$: Observable<IDish[]>;
 
-  constructor(private dishesService: DishesService) {
+  constructor(private dishesService: DishesService,
+              private userService: UserService,
+              private router: Router
+  ) {
     this.dishes$ = this.dishesService.getDishes();
+  }
+
+  ngOnInit(): void {
+    const user = this.userService.currentUser();
+
+    if(user?.role === 'chef'){
+      this.router.navigate(['/admin']);
+    } else {
+      this.router.navigate(['/menu'])
+    }
   }
 
   newDish: IDish = {
