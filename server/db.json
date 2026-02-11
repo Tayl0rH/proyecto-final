@@ -41,7 +41,7 @@
       "price": 235,
       "category": "bebidas",
       "image": "",
-      "enabled": false
+      "enabled": true
     }
   ]
 }

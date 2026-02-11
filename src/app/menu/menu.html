@@ -1,3 +1,15 @@
+<div class="flex">
+  <button class="btn btn-ghost btn-sm flex items-center gap-2" (click)="orderPrice()">
+    Ordenar por precio
+  </button>
+  <select class="select select-bordered w-full max-w-xs" (change)="orderCategory($event)">
+    <option value="">Todas</option>
+    <option value="entrantes">Entrantes</option>
+    <option value="principales">Principales</option>
+    <option value="postres">Postres</option>
+    <option value="bebidas">Bebidas</option>
+  </select>
+</div>
 @if (dishes$ | async; as dishes){
 @if (dishes.length == 0) {
 <p>No hay platos...</p>
@@ -18,5 +30,3 @@
 </div>
 }
 }
-
-<p>Ordenar por precio  ||||||| categoria </p>
