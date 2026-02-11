@@ -7,12 +7,12 @@
     <legend class="fieldset-legend">Iniciar Sesión</legend>
 
     <label class="label">Email</label>
-    <input type="email" class="input" placeholder="Correo Electrónico" />
+    <input type="email" class="input" placeholder="Correo Electrónico" name="email" [(ngModel)]="email" />
 
     <label class="label">Password</label>
-    <input type="password" class="input" placeholder="Contraseña" />
+    <input type="password" class="input" placeholder="Contraseña" name="password" [(ngModel)]="password" />
 
-    <button class="btn btn-neutral mt-4">¡Entrar!</button>
+    <button class="btn btn-neutral mt-4" (click)="loginUser()">¡Entrar!</button>
   </fieldset>
 
 </section>

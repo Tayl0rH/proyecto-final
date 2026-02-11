@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DishesService } from '../../services/dish.service';
-import { IDish } from '../../interfaces/i-dishes';
+import { IDish } from '../../interfaces/i-dish';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

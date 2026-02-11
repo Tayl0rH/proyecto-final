@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { DishesService } from '../services/dish.service';
 import { CommonModule } from '@angular/common';
-import { IDish } from '../interfaces/i-dishes';
+import { IDish } from '../interfaces/i-dish';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -33,22 +33,20 @@ export class Menu {
     );
   }
 
-  orderCategory(event: Event){
+  orderCategory(event: Event) {
     const select = event.target as HTMLSelectElement;
     const categorySelected = select.value;
 
     this.dishes$ = this.dishesService.getDishes().pipe(
-      map(dishes => {
-        const enabledDishes = dishes.filter(d => d.enabled);
+      map((dishes) => {
+        const enabledDishes = dishes.filter((d) => d.enabled);
 
         if (!categorySelected) {
           return enabledDishes;
         }
 
-        return enabledDishes.filter(
-          dish => dish.category === categorySelected
-        );
-      })
+        return enabledDishes.filter((dish) => dish.category === categorySelected);
+      }),
     );
   }
 }

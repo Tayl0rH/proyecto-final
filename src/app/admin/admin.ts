@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { DishesService } from '../services/dish.service';
 import { Observable } from 'rxjs';
-import { IDish } from '../interfaces/i-dishes';
+import { IDish } from '../interfaces/i-dish';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +13,6 @@ import { RouterLink } from "@angular/router";
   styleUrl: './admin.css',
 })
 export class Admin {
-
   dishes$: Observable<IDish[]>;
 
   constructor(private dishesService: DishesService) {
