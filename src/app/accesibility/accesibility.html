@@ -1,0 +1,12 @@
+<div class="fab">
+  <!-- a focusable div with tabindex is necessary to work on all browsers. role="button" is necessary for accessibility -->
+  <div tabindex="0" role="button" class="btn btn-lg btn-success">Accesibilidad</div>
+
+  <!-- buttons that show up when FAB is open -->
+  <button class="btn btn-lg" (click)="biggerText()">Texto grande</button>
+  <button class="btn btn-lg" (click)="changeFont()">Fuente legible</button>
+  <button class="btn btn-lg" (click)="hideImages()">Esconder Imágenes</button>
+  <button class="btn btn-lg" (click)="greyScale()">Escala de Grises</button>
+  <button class="btn btn-lg" (click)="showLinks()">Mostrar links</button>
+  <button class="btn btn-lg" (click)="readingMask()">Reading mask</button>
+</div>

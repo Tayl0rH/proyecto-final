@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @plugin "daisyui";
+
+.legible-font * {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+.hide-images img * {
+  display: none !important;
+}
+
+.grayscale-mode *:not(.fab) {
+  filter: grayscale(100%);
+}
+

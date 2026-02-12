@@ -6,12 +6,13 @@
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        <li><a routerLink="/menu">Carta</a></li>
         @if(isChef()){
-          <li><a routerLink="/admin">Gestión(Solo Admin)</a></li>
+          <li><a routerLink="/admin">Gestión del Menú</a></li>
+        } @else {
+          <li><a routerLink="/menu">Carta</a></li>
         }
         @if(isLogged()){
-          <li><button class="btn" (click)="logout()">Cerrar Sesión</button></li>
+          <li><a (click)="logout()">Cerrar Sesión</a></li>
         } @else {
           <li><a routerLink="/login">Iniciar Sesión</a></li>
         }

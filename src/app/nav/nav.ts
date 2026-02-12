@@ -16,7 +16,6 @@ export class Nav {
 
   ngOnInit(): void {
     const user = localStorage.getItem('currentUser');
-    console.log(this.isChef());
   }
 
   isChef() {

@@ -83,7 +83,7 @@ export class Admin {
   addDishes() {
     this.dishesService.addDishes(this.newDish).subscribe({
       next: (response) => {
-        this.dishes$ = this.dishesService.getDishes();
+        //this.dishes$ = this.dishesService.getDishes();
         this.newDish = {
           name: '',
           description: '',
@@ -98,18 +98,22 @@ export class Admin {
         console.log(error);
       },
     });
+    this.dishes$ = this.dishesService.getDishes();
+
   }
 
   deleteDish(id: string) {
     this.dishesService.deleteDishes(id).subscribe({
-      next: (response) => {
+      /*next: (response) => {
         this.dishes$ = this.dishesService.getDishes();
-      },
+      }, */
       error: (error) => {
         alert('No se pudo eliminar el plato.');
         console.log(error);
       },
     });
+    this.dishes$ = this.dishesService.getDishes();
+
   }
 
   showDish(id: string, enabled: boolean) {

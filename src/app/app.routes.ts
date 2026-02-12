@@ -24,7 +24,7 @@ export const routes: Routes = [
   {
     path: 'admin/edit/:id',
     component: Edit,
-    title: 'Edit'
+    title: 'Gestión de Menú'
   },
   {
     path: 'login',

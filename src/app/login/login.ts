@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { FormsModule,  } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,35 +10,36 @@ import { Router } from '@angular/router';
   styleUrl: './login.css',
 })
 export class Login {
-
-  constructor(private userService: UserService,
-              private route: Router
-  ){}
+  constructor(
+    private userService: UserService,
+    private route: Router,
+  ) {}
 
   email: string = '';
-  password: string ='';
+  password: string = '';
 
-  loginUser(){
-    this.userService.login(this.email, this.password).subscribe(
-      users => {
-        if (users.length > 0 ) {
+  loginUser() {
+    this.userService.login(this.email, this.password).subscribe((users) => {
+      if (users.length > 0) {
+        const user = users[0];
 
-          const user = users[0];
+        localStorage.setItem('currentUser', JSON.stringify(user));
 
-          localStorage.setItem('currentUser', JSON.stringify(user));
-
-          if(user.role == 'chef'){
-            this.route.navigate(['/admin']);
-          } else {
-            this.route.navigate(['/menu'])
-          }
-
+        if (user.role == 'chef') {
+          this.route.navigate(['/admin']);
         } else {
-          console.log('Credenciales incorrectas')
+          this.route.navigate(['/menu']);
         }
+      } else {
+        this.loginError();
       }
-    )
+    });
   }
 
-
+  loginError() {
+    const loginSection = document.getElementById('loginSection');
+    if (loginSection) {
+      loginSection.innerHTML += '<span class="mt-5">Error al inciciar sesión</span>';
+    }
+  }
 }
