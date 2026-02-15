@@ -9,31 +9,31 @@ export const routes: Routes = [
   {
     path: 'home',
     component: Home,
-    title: 'Inicio'
+    title: 'Inicio',
   },
   {
     path: 'menu',
     component: Menu,
-    title: 'Menu'
+    title: 'Menu',
   },
   {
     path: 'admin',
     component: Admin,
-    title: 'Admin'
+    title: 'Admin',
   },
   {
     path: 'admin/edit/:id',
     component: Edit,
-    title: 'Gestión de Menú'
+    title: 'Gestión de Menú',
   },
   {
     path: 'login',
     component: Login,
-    title: 'Login'
+    title: 'Login',
   },
   {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
